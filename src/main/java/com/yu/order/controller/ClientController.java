@@ -1,5 +1,6 @@
 package com.yu.order.controller;
 
+import com.yu.order.client.ProductClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -19,11 +20,14 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class ClientController {
 
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+    //@Autowired
+    //private LoadBalancerClient loadBalancerClient;
+
+//    @Autowired
+//    private RestTemplate restTemplate;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private ProductClient productClient;
 
     @GetMapping("/getProductMsg")
     public String getProductMsg(){
@@ -39,7 +43,10 @@ public class ClientController {
 //        String response = restTemplate.getForObject(url, String.class);
 
         //第三种方式(利用LoadBalanced，可在RestTemplate里使用应用的名字)
-        String response = restTemplate.getForObject("http://PRODUCT/msg", String.class);
+     //   String response = restTemplate.getForObject("http://PRODUCT/msg", String.class);
+     //   log.info("response={}", response);
+     //----------------------------------------------------------------------------------------FFeign-------
+        String response = productClient.productMsg();
         log.info("response={}", response);
         return response;
     }

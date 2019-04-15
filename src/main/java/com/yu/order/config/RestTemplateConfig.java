@@ -12,13 +12,13 @@ import org.springframework.web.client.RestTemplate;
  * @Author hadoop
  * Date 2019/4/14 22:55
  **/
-@Component
+//@Component
 public class RestTemplateConfig {
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
+//    @Bean
+//    @LoadBalanced
+//    public RestTemplate restTemplate(){
+//        return new RestTemplate();
+//    }
 
 }
