@@ -31,4 +31,7 @@ public class OrderDetailRepositoryTest extends OrderApplicationTests {
 
         Assert.assertTrue(result != null);
     }
+
+
+
 }
